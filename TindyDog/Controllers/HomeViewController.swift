@@ -1,0 +1,61 @@
+//
+//  HomeViewController.swift
+//  TindyDog
+//
+//  Created by Enrique Alexis Lopez Araujo on 23/02/18.
+//  Copyright © 2018 alexisaraujo. All rights reserved.
+//
+
+import UIKit
+class NavigationImageView: UIImageView {
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        return CGSize(width: 76, height: 39)
+    }
+}
+
+class HomeViewController: UIViewController {
+
+    @IBOutlet weak var cardView: UIView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let titleView = NavigationImageView()
+        titleView.image = UIImage(named: "Actions")
+        self.navigationItem.titleView = titleView
+        
+        let homeGR = UIPanGestureRecognizer(target: self, action: #selector(cardDragged(gestureRecognizer:)))
+        self.cardView.addGestureRecognizer(homeGR)
+        // Do any additional setup after loading the view.
+    }
+    
+    @objc func cardDragged(gestureRecognizer: UIPanGestureRecognizer) {
+        let cardPoint = gestureRecognizer.translation(in: view)
+        self.cardView.center = CGPoint(x: self.view.bounds.width / 2 + cardPoint.x, y: self.view.bounds.height / 2 + cardPoint.y)
+        if gestureRecognizer.state == .ended {
+            if self.cardView.center.x < self.view.bounds.width / 2 - 100 {
+                print("Dislike")
+            }
+            if self.cardView.center.x > self.view.bounds.width / 2 + 100 {
+                print("like")
+            }
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
