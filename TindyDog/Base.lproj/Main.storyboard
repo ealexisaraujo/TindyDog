@@ -111,6 +111,7 @@
                     <navigationItem key="navigationItem" id="413-I4-Cec"/>
                     <connections>
                         <outlet property="cardView" destination="QIo-Fm-hOq" id="54g-8W-09e"/>
+                        <outlet property="homeWrapper" destination="u9B-Nj-KX6" id="CxJ-iB-TZv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
