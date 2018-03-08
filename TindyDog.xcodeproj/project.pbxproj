@@ -13,6 +13,7 @@
 		77116C32203CD57F007B04DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77116C30203CD57F007B04DB /* LaunchScreen.storyboard */; };
 		7740363D204F4F4E0038731B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7740363C204F4F4E0038731B /* LoginViewController.swift */; };
 		7775D66D20405C130090A496 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775D66C20405C130090A496 /* HomeViewController.swift */; };
+		7785449620517BF60030B7B4 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785449520517BF60030B7B4 /* UIViewExt.swift */; };
 		D058F85AE55BA8FC0AECC2E2 /* Pods_TindyDog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEC74AD125D2C36635E41B7 /* Pods_TindyDog.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		77116C33203CD57F007B04DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7740363C204F4F4E0038731B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7775D66C20405C130090A496 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7785449520517BF60030B7B4 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		E11F6647F67A841B5FCC4241 /* Pods-TindyDog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TindyDog.release.xcconfig"; path = "Pods/Target Support Files/Pods-TindyDog/Pods-TindyDog.release.xcconfig"; sourceTree = "<group>"; };
 		FAEC74AD125D2C36635E41B7 /* Pods_TindyDog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TindyDog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -80,6 +82,7 @@
 		77116C26203CD57F007B04DB /* TindyDog */ = {
 			isa = PBXGroup;
 			children = (
+				7785449420517BDF0030B7B4 /* Extensions */,
 				7775D66B20405BD60090A496 /* Controllers */,
 				77116C27203CD57F007B04DB /* AppDelegate.swift */,
 				77116C2B203CD57F007B04DB /* Main.storyboard */,
@@ -97,6 +100,14 @@
 				7740363C204F4F4E0038731B /* LoginViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7785449420517BDF0030B7B4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7785449520517BF60030B7B4 /* UIViewExt.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7785449620517BF60030B7B4 /* UIViewExt.swift in Sources */,
 				7740363D204F4F4E0038731B /* LoginViewController.swift in Sources */,
 				77116C28203CD57F007B04DB /* AppDelegate.swift in Sources */,
 				7775D66D20405C130090A496 /* HomeViewController.swift in Sources */,
