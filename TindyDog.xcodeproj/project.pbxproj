@@ -14,6 +14,7 @@
 		7740363D204F4F4E0038731B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7740363C204F4F4E0038731B /* LoginViewController.swift */; };
 		7775D66D20405C130090A496 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775D66C20405C130090A496 /* HomeViewController.swift */; };
 		7785449620517BF60030B7B4 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785449520517BF60030B7B4 /* UIViewExt.swift */; };
+		7785449820517CDC0030B7B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7785449720517CDC0030B7B4 /* GoogleService-Info.plist */; };
 		D058F85AE55BA8FC0AECC2E2 /* Pods_TindyDog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEC74AD125D2C36635E41B7 /* Pods_TindyDog.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		7740363C204F4F4E0038731B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7775D66C20405C130090A496 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7785449520517BF60030B7B4 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
+		7785449720517CDC0030B7B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E11F6647F67A841B5FCC4241 /* Pods-TindyDog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TindyDog.release.xcconfig"; path = "Pods/Target Support Files/Pods-TindyDog/Pods-TindyDog.release.xcconfig"; sourceTree = "<group>"; };
 		FAEC74AD125D2C36635E41B7 /* Pods_TindyDog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TindyDog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -88,6 +90,7 @@
 				77116C2B203CD57F007B04DB /* Main.storyboard */,
 				77116C2E203CD57F007B04DB /* Assets.xcassets */,
 				77116C30203CD57F007B04DB /* LaunchScreen.storyboard */,
+				7785449720517CDC0030B7B4 /* GoogleService-Info.plist */,
 				77116C33203CD57F007B04DB /* Info.plist */,
 			);
 			path = TindyDog;
@@ -173,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77116C32203CD57F007B04DB /* LaunchScreen.storyboard in Resources */,
+				7785449820517CDC0030B7B4 /* GoogleService-Info.plist in Resources */,
 				77116C2F203CD57F007B04DB /* Assets.xcassets in Resources */,
 				77116C2D203CD57F007B04DB /* Main.storyboard in Resources */,
 			);
@@ -203,11 +207,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TindyDog/Pods-TindyDog-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
