@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		770F81622051814900BA5B12 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770F81612051814900BA5B12 /* DatabaseService.swift */; };
 		77116C28203CD57F007B04DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77116C27203CD57F007B04DB /* AppDelegate.swift */; };
 		77116C2D203CD57F007B04DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77116C2B203CD57F007B04DB /* Main.storyboard */; };
 		77116C2F203CD57F007B04DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77116C2E203CD57F007B04DB /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		6A035FF55C20779EC2C3ACEA /* Pods-TindyDog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TindyDog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TindyDog/Pods-TindyDog.debug.xcconfig"; sourceTree = "<group>"; };
+		770F81612051814900BA5B12 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		77116C24203CD57F007B04DB /* TindyDog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TindyDog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77116C27203CD57F007B04DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77116C2C203CD57F007B04DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +65,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		770F81602051813300BA5B12 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				770F81612051814900BA5B12 /* DatabaseService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		77116C1B203CD57F007B04DB = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +94,7 @@
 		77116C26203CD57F007B04DB /* TindyDog */ = {
 			isa = PBXGroup;
 			children = (
+				770F81602051813300BA5B12 /* Services */,
 				7785449420517BDF0030B7B4 /* Extensions */,
 				7775D66B20405BD60090A496 /* Controllers */,
 				77116C27203CD57F007B04DB /* AppDelegate.swift */,
@@ -252,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7785449620517BF60030B7B4 /* UIViewExt.swift in Sources */,
+				770F81622051814900BA5B12 /* DatabaseService.swift in Sources */,
 				7740363D204F4F4E0038731B /* LoginViewController.swift in Sources */,
 				77116C28203CD57F007B04DB /* AppDelegate.swift in Sources */,
 				7775D66D20405C130090A496 /* HomeViewController.swift in Sources */,
