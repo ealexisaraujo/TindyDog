@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
     @IBAction func closeBtn(_ sender: Any) {
@@ -32,7 +33,34 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
+    
+    func showAlert(title: String, message: String) {
+        let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertView.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alertView, animated: true, completion: nil)
+    }
+    
     @IBAction func loginActionBtn(_ sender: Any) {
+        if self.emailTextField.text == "" || self.passwordTextField.text == "" {
+            self.showAlert(title: "Error", message: "Alguno de los campos esta vacio")
+            
+        } else {
+            if let email = self.emailTextField.text{
+                if let password = self.passwordTextField.text {
+                    if registerMode {
+                        Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
+                            if error != nil {
+                                self.showAlert(title: "Error", message: error!.localizedDescription)
+                            } else {
+                                print("cuenta creada")
+                            }
+                        })
+                    } else {
+                        
+                    }
+                }
+            }
+        }
     }
     var registerMode = true
     
