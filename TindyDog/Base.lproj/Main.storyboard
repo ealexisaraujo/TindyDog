@@ -146,6 +146,31 @@
             </objects>
             <point key="canvasLocation" x="690" y="-623"/>
         </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="xzN-g6-acW">
+            <objects>
+                <viewController storyboardIdentifier="profileVC" id="AAa-eH-fkZ" customClass="ProfileViewController" customModule="TindyDog" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NzF-PY-S2f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1N-CP-m25">
+                                <rect key="frame" x="133" y="318" width="109" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Close session"/>
+                                <connections>
+                                    <action selector="closeProfileBtn:" destination="AAa-eH-fkZ" eventType="touchUpInside" id="ga1-Wy-UhD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="4GM-z9-IDI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jPR-8y-Qf8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1448.8" y="-122.78860569715144"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="A8M-w0-3xH">
             <objects>
@@ -345,6 +370,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9tV-E5-6lh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-246" y="-523"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="iK7-Pl-7ZG">
+            <objects>
+                <viewController id="wUm-ip-f2m" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2RT-M6-1eC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="QWc-Vl-xwQ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q50-Xk-INJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9IM-CN-qQL">
+            <objects>
+                <viewController id="Ccj-fg-pEM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p9U-ZJ-QCc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ZNx-GO-tQv"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1av-qF-hvl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

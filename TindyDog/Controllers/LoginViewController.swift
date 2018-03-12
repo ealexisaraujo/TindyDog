@@ -66,6 +66,7 @@ class LoginViewController: UIViewController {
                                 self.showAlert(title: "Error", message: error!.localizedDescription)
                             } else {
                                 print("login")
+                                self.dismiss(animated: true, completion: nil)
                             }
                         })
                     }
