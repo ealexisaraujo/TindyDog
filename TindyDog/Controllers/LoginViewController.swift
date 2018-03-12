@@ -53,10 +53,21 @@ class LoginViewController: UIViewController {
                                 self.showAlert(title: "Error", message: error!.localizedDescription)
                             } else {
                                 print("cuenta creada")
+                                if let user = user{
+                                    let userData = ["provider": user.providerID, "email": user.email!, "profileimage": "https://i.imgur.com/LrdJ0SO.jpg", "displayName": "Crispeta"] as [String: Any]
+                                    
+                                    DatabaseService.instance.createFirebaseDBUser(uid: user.uid, userData: userData)
+                                }
                             }
                         })
                     } else {
-                        
+                        Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+                            if error != nil {
+                                self.showAlert(title: "Error", message: error!.localizedDescription)
+                            } else {
+                                print("login")
+                            }
+                        })
                     }
                 }
             }
