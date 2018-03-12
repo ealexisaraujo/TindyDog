@@ -11,6 +11,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
+        </array>
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
         </array>
@@ -163,7 +166,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ve4-uS-Owl">
-                                <rect key="frame" x="50" y="136" width="275" height="395"/>
+                                <rect key="frame" x="50" y="94.5" width="275" height="478.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L63-qO-NNl">
                                         <rect key="frame" x="0.0" y="0.0" width="275" height="200"/>
@@ -216,10 +219,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TJk-OD-cn9">
-                                        <rect key="frame" x="0.0" y="200" width="275" height="195"/>
+                                        <rect key="frame" x="0.0" y="200" width="275" height="278.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="aXM-Nl-daV">
-                                                <rect key="frame" x="0.0" y="0.0" width="275" height="195"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="275" height="278.5"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hola@tindog.com" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e0p-eY-bVT">
                                                         <rect key="frame" x="12.5" y="0.0" width="250" height="50"/>
@@ -232,7 +235,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6p6-zo-0Iy">
-                                                        <rect key="frame" x="12.5" y="65" width="250" height="50"/>
+                                                        <rect key="frame" x="12.5" y="78" width="250" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="250" id="Mph-bp-0XH"/>
                                                             <constraint firstAttribute="height" constant="50" id="OdM-hB-igy"/>
@@ -242,17 +245,52 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hn-he-5FL">
-                                                        <rect key="frame" x="9.5" y="130" width="256" height="65"/>
+                                                        <rect key="frame" x="9.5" y="156" width="256" height="65"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="65" id="EvB-uM-CSE"/>
                                                             <constraint firstAttribute="width" constant="256" id="F07-NG-6Is"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                                        <state key="normal" title="Login / Registro" backgroundImage="login_btn_bg">
+                                                        <state key="normal" title="Crear Cuenta" backgroundImage="login_btn_bg">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="loginActionBtn:" destination="4dK-0X-B5V" eventType="touchUpInside" id="hGt-ap-Ckv"/>
+                                                        </connections>
                                                     </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="bB0-hG-YXX">
+                                                        <rect key="frame" x="41" y="249" width="193" height="29.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ya tienes cuenta?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LjJ-5I-e6T">
+                                                                <rect key="frame" x="0.0" y="6.5" width="125" height="16.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="125" id="F9t-qz-DJK"/>
+                                                                    <constraint firstAttribute="height" constant="16.5" id="SOJ-Hg-GMY"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTe-MU-KTk">
+                                                                <rect key="frame" x="128" y="0.0" width="65" height="29.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="65" id="08v-2T-hsF"/>
+                                                                    <constraint firstAttribute="height" constant="29" id="mUQ-Es-WKA"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                                                <state key="normal" title="Login">
+                                                                    <color key="titleColor" red="1" green="0.15957046475153036" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="subLoginBtnAction:" destination="4dK-0X-B5V" eventType="touchUpInside" id="WcR-d0-baN"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="bB0-hG-YXX" firstAttribute="top" secondItem="2hn-he-5FL" secondAttribute="bottom" constant="28" id="o50-41-acV"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -278,6 +316,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HOu-Va-ZeB"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="e0p-eY-bVT" id="Xjt-N1-U9w"/>
+                        <outlet property="loginBtn" destination="2hn-he-5FL" id="xWg-Y2-ieG"/>
+                        <outlet property="loginCopyLbl" destination="LjJ-5I-e6T" id="TFb-5U-lZk"/>
+                        <outlet property="passwordTextField" destination="6p6-zo-0Iy" id="ZGw-36-QFq"/>
+                        <outlet property="subLoginBtn" destination="JTe-MU-KTk" id="bgK-za-5vs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PAB-be-pp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
