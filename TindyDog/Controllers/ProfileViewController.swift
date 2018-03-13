@@ -11,13 +11,20 @@ import Firebase
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var profileEmailLbl: UILabel!
+    @IBOutlet weak var profileDisplaynameLbl: UILabel!
+    @IBOutlet weak var profileImage: UIImageView!
     @IBAction func closeProfileBtn(_ sender: Any) {
         try! Auth.auth().signOut()
         self.dismiss(animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.profileImage.layer.cornerRadius = self.profileImage.bounds.size.height / 2
+        self.profileImage.layer.borderColor = UIColor.white.cgColor
+        self.profileImage.layer.borderWidth = 1.0
+        self.profileImage.clipsToBounds = true
+        
         // Do any additional setup after loading the view.
     }
 

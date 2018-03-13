@@ -160,7 +160,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="9Sn-TE-2gt">
                                 <rect key="frame" x="60" y="50" width="255" height="325"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z6m-Xt-BTP">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crispy_head" translatesAutoresizingMaskIntoConstraints="NO" id="Z6m-Xt-BTP">
                                         <rect key="frame" x="37.5" y="0.0" width="180" height="180"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="MKg-Ak-z5S"/>
@@ -205,6 +205,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4GM-z9-IDI"/>
                     </view>
+                    <connections>
+                        <outlet property="profileDisplaynameLbl" destination="QEl-rN-AIf" id="TiR-Qe-pWR"/>
+                        <outlet property="profileEmailLbl" destination="iOo-H3-LIW" id="S7k-eZ-rzw"/>
+                        <outlet property="profileImage" destination="Z6m-Xt-BTP" id="gjb-nK-TW5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPR-8y-Qf8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -410,34 +415,6 @@
             </objects>
             <point key="canvasLocation" x="-246" y="-523"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="iK7-Pl-7ZG">
-            <objects>
-                <viewController id="wUm-ip-f2m" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2RT-M6-1eC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="QWc-Vl-xwQ"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Q50-Xk-INJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="9IM-CN-qQL">
-            <objects>
-                <viewController id="Ccj-fg-pEM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="p9U-ZJ-QCc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="ZNx-GO-tQv"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1av-qF-hvl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="Boost" width="51" height="51"/>
@@ -448,6 +425,7 @@
         <image name="Swipe Card" width="356" height="507"/>
         <image name="close_modal" width="23" height="23"/>
         <image name="crispeta" width="277" height="369"/>
+        <image name="crispy_head" width="640" height="539"/>
         <image name="like_image" width="170" height="114"/>
         <image name="login_btn_bg" width="256" height="65"/>
         <image name="nope_image" width="197" height="130"/>
