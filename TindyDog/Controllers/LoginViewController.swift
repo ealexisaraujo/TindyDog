@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
                             } else {
                                 print("cuenta creada")
                                 if let user = user{
-                                    let userData = ["provider": user.providerID, "email": user.email!, "profileimage": "https://i.imgur.com/LrdJ0SO.jpg", "displayName": "Crispeta"] as [String: Any]
+                                    let userData = ["provider": user.providerID, "email": user.email!, "profileImage": "https://i.imgur.com/LrdJ0SO.jpg", "displayName": "Crispeta"] as [String: Any]
                                     
                                     DatabaseService.instance.createFirebaseDBUser(uid: user.uid, userData: userData)
                                 }

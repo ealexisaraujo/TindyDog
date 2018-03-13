@@ -25,6 +25,8 @@ class HomeViewController: UIViewController {
     
     let leftBtn = UIButton(type: .custom)
     
+    var currentUserProfile: UserModel?
+    
     let revealingSplashScreen = RevealingSplashView(iconImage: UIImage(named: "splash_icon")!,iconInitialSize: CGSize(width: 70, height: 70), backgroundColor: UIColor.white)
     
     override func viewDidLoad() {
@@ -45,6 +47,10 @@ class HomeViewController: UIViewController {
         let leftBarButton = UIBarButtonItem(customView: self.leftBtn)
         self.navigationItem.leftBarButtonItem = leftBarButton
         
+        DatabaseService.instance.observeUserProfile { (userDict) in
+            self.currentUserProfile = userDict
+        }
+        
         // Do any additional setup after loading the view.
     }
     
@@ -62,14 +68,15 @@ class HomeViewController: UIViewController {
     
     @objc func goToLogin(sender: UIButton) {
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let loginViewController = storyBoard.instantiateViewController(withIdentifier: "loginVC")
+        let loginViewController = storyBoard.instantiateViewController(withIdentifier: "loginVC") 
         present(loginViewController, animated: true, completion: nil)
     }
     
     @objc func goToProfile(sender: UIButton) {
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let profileViewController = storyBoard.instantiateViewController(withIdentifier: "profileVC")
-        present(profileViewController, animated: true, completion: nil)
+        let profileViewController = storyBoard.instantiateViewController(withIdentifier: "profileVC") as! ProfileViewController
+        profileViewController.currentUserProfile = self.currentUserProfile
+        self.navigationController?.pushViewController(profileViewController, animated: true)
     }
     
     @objc func cardDragged(gestureRecognizer: UIPanGestureRecognizer) {
