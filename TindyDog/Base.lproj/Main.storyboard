@@ -96,12 +96,16 @@
                                                         <state key="normal" image="Rewind"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWR-Vz-3jV">
-                                                        <rect key="frame" x="92" y="0.0" width="63" height="70"/>
+                                                        <rect key="frame" x="69" y="0.0" width="63" height="70"/>
                                                         <state key="normal" image="Nope"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUy-RI-nGg">
-                                                        <rect key="frame" x="196" y="0.0" width="51" height="70"/>
+                                                        <rect key="frame" x="150" y="0.0" width="51" height="70"/>
                                                         <state key="normal" image="Boost"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aB-9s-hOB">
+                                                        <rect key="frame" x="219" y="0.0" width="51" height="70"/>
+                                                        <state key="normal" image="Super Like"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jLx-QT-T6Z">
                                                         <rect key="frame" x="288" y="0.0" width="63" height="70"/>
@@ -109,11 +113,6 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aB-9s-hOB">
-                                                <rect key="frame" x="300" y="0.0" width="51" height="70"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="Super Like"/>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -183,7 +182,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1N-CP-m25">
                                         <rect key="frame" x="0.0" y="260" width="255" height="65"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
-                                        <state key="normal" title="Close session" backgroundImage="login_btn_bg">
+                                        <state key="normal" title="Cerrar sesion" backgroundImage="login_btn_bg">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -192,6 +191,14 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJV-Pe-Eh7">
+                                <rect key="frame" x="101" y="445" width="170" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Importar Usuarios"/>
+                                <connections>
+                                    <action selector="importUsersAction:" destination="AAa-eH-fkZ" eventType="touchUpInside" id="mAu-ga-Ouo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>

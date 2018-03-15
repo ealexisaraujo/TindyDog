@@ -47,6 +47,15 @@ class HomeViewController: UIViewController {
         let leftBarButton = UIBarButtonItem(customView: self.leftBtn)
         self.navigationItem.leftBarButtonItem = leftBarButton
         
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if let user = user {
+                print("Usuario inicio correctamente")
+            } else {
+                print("Logout")
+            }
+            
+        }
+        
         DatabaseService.instance.observeUserProfile { (userDict) in
             self.currentUserProfile = userDict
         }
