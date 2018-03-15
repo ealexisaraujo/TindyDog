@@ -26,6 +26,7 @@ class HomeViewController: UIViewController {
     let leftBtn = UIButton(type: .custom)
     
     var currentUserProfile: UserModel?
+    var users = [UserModel]()
     
     let revealingSplashScreen = RevealingSplashView(iconImage: UIImage(named: "splash_icon")!,iconInitialSize: CGSize(width: 70, height: 70), backgroundColor: UIColor.white)
     
@@ -59,7 +60,7 @@ class HomeViewController: UIViewController {
         DatabaseService.instance.observeUserProfile { (userDict) in
             self.currentUserProfile = userDict
         }
-        
+        self.getUsers()
         // Do any additional setup after loading the view.
     }
     
@@ -86,6 +87,16 @@ class HomeViewController: UIViewController {
         let profileViewController = storyBoard.instantiateViewController(withIdentifier: "profileVC") as! ProfileViewController
         profileViewController.currentUserProfile = self.currentUserProfile
         self.navigationController?.pushViewController(profileViewController, animated: true)
+    }
+    
+    func getUsers() {
+        DatabaseService.instance.User_Ref.observeSingleEvent(of: .value) { (snapshot) in
+            let userSnapshot = snapshot.children.flatMap{UserModel(snapshot: $0 as! DataSnapshot)}
+            for user in userSnapshot{
+                print("user: \(user.email)")
+                self.users.append(user)
+            }
+        }
     }
     
     @objc func cardDragged(gestureRecognizer: UIPanGestureRecognizer) {
