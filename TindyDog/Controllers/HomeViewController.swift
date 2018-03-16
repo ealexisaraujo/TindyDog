@@ -22,6 +22,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var homeWrapper: UIStackView!
     @IBOutlet weak var likeImage: UIImageView!
     @IBOutlet weak var nopeImage: UIImageView!
+    @IBOutlet weak var cardProfileImage: UIImageView!
+    @IBOutlet weak var cardProfileName: UILabel!
     
     let leftBtn = UIButton(type: .custom)
     
@@ -99,6 +101,15 @@ class HomeViewController: UIViewController {
         }
     }
     
+    func updateImage(uid: String) {
+        DatabaseService.instance.User_Ref.child(uid).observeSingleEvent(of: .value) { (snapshot) in
+            if let userProfile = UserModel(snapshot: snapshot){
+                self.cardProfileImage.sd_setImage(with: URL(string: userProfile.profileImage), completed: nil)
+                self.cardProfileName.text = userProfile.displayName
+            }
+        }
+    }
+    
     @objc func cardDragged(gestureRecognizer: UIPanGestureRecognizer) {
         let cardPoint = gestureRecognizer.translation(in: view)
         self.cardView.center = CGPoint(x: self.view.bounds.width / 2 + cardPoint.x , y: self.view.bounds.height / 2 + cardPoint.y)
@@ -125,6 +136,11 @@ class HomeViewController: UIViewController {
             if self.cardView.center.x > self.view.bounds.width / 2 + 100 {
                 print("like")
             }
+            //Update image
+            if self.users.count > 0 {
+                self.updateImage(uid: self.users[self.random(0..<self.users.count)].uid)
+            }
+            
             
             rotate = CGAffineTransform(rotationAngle: 0)
             finalTransform = rotate.scaledBy(x: 1, y: 1)
@@ -134,6 +150,10 @@ class HomeViewController: UIViewController {
             
             self.cardView.center = CGPoint(x: self.homeWrapper.bounds.width / 2 , y: (self.homeWrapper.bounds.height / 2 - 30) )
         }
+    }
+    
+    func random(_ range: Range<Int>) -> Int {
+        return range.lowerBound + Int(arc4random_uniform(UInt32(range.upperBound - range.lowerBound)))
     }
 
     override func didReceiveMemoryWarning() {
