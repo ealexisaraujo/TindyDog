@@ -28,6 +28,7 @@ class HomeViewController: UIViewController {
     let leftBtn = UIButton(type: .custom)
     
     var currentUserProfile: UserModel?
+    var secondUserUID: String?
     var users = [UserModel]()
     
     let revealingSplashScreen = RevealingSplashView(iconImage: UIImage(named: "splash_icon")!,iconInitialSize: CGSize(width: 70, height: 70), backgroundColor: UIColor.white)
@@ -97,12 +98,16 @@ class HomeViewController: UIViewController {
                 print("user: \(user.email)")
                 self.users.append(user)
             }
+            if self.users.count > 0 {
+                self.updateImage(uid: (self.users.first?.uid)!)
+            }
         }
     }
     
     func updateImage(uid: String) {
         DatabaseService.instance.User_Ref.child(uid).observeSingleEvent(of: .value) { (snapshot) in
             if let userProfile = UserModel(snapshot: snapshot){
+                self.secondUserUID = userProfile.uid
                 self.cardProfileImage.sd_setImage(with: URL(string: userProfile.profileImage), completed: nil)
                 self.cardProfileName.text = userProfile.displayName
             }
@@ -134,6 +139,11 @@ class HomeViewController: UIViewController {
             }
             if self.cardView.center.x > self.view.bounds.width / 2 + 100 {
                 print("like")
+                //create match
+                if let uid2 = self.secondUserUID {
+                    DatabaseService.instance.createFirebaseDBMatch(uid: self.currentUserProfile!.uid, uid2: uid2)
+                }
+                
             }
             //Update image
             if self.users.count > 0 {
