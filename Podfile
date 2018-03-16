@@ -8,6 +8,7 @@ target 'TindyDog' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'SDWebImage'
   # Pods for TindyDog
 
 end

@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		770F81622051814900BA5B12 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770F81612051814900BA5B12 /* DatabaseService.swift */; };
 		77116C28203CD57F007B04DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77116C27203CD57F007B04DB /* AppDelegate.swift */; };
 		77116C2D203CD57F007B04DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77116C2B203CD57F007B04DB /* Main.storyboard */; };
 		77116C2F203CD57F007B04DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77116C2E203CD57F007B04DB /* Assets.xcassets */; };
 		77116C32203CD57F007B04DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77116C30203CD57F007B04DB /* LaunchScreen.storyboard */; };
 		7740363D204F4F4E0038731B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7740363C204F4F4E0038731B /* LoginViewController.swift */; };
+		7774324B2058081000FCA444 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7774324A2058081000FCA444 /* UserModel.swift */; };
 		7775D66D20405C130090A496 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775D66C20405C130090A496 /* HomeViewController.swift */; };
 		7785449620517BF60030B7B4 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785449520517BF60030B7B4 /* UIViewExt.swift */; };
 		7785449820517CDC0030B7B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7785449720517CDC0030B7B4 /* GoogleService-Info.plist */; };
+		77C1A8692056EDEE0053997A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C1A8682056EDEE0053997A /* ProfileViewController.swift */; };
 		D058F85AE55BA8FC0AECC2E2 /* Pods_TindyDog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEC74AD125D2C36635E41B7 /* Pods_TindyDog.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6A035FF55C20779EC2C3ACEA /* Pods-TindyDog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TindyDog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TindyDog/Pods-TindyDog.debug.xcconfig"; sourceTree = "<group>"; };
+		770F81612051814900BA5B12 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		77116C24203CD57F007B04DB /* TindyDog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TindyDog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77116C27203CD57F007B04DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77116C2C203CD57F007B04DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -27,9 +31,11 @@
 		77116C31203CD57F007B04DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77116C33203CD57F007B04DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7740363C204F4F4E0038731B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7774324A2058081000FCA444 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		7775D66C20405C130090A496 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7785449520517BF60030B7B4 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		7785449720517CDC0030B7B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		77C1A8682056EDEE0053997A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E11F6647F67A841B5FCC4241 /* Pods-TindyDog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TindyDog.release.xcconfig"; path = "Pods/Target Support Files/Pods-TindyDog/Pods-TindyDog.release.xcconfig"; sourceTree = "<group>"; };
 		FAEC74AD125D2C36635E41B7 /* Pods_TindyDog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TindyDog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -63,6 +69,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		770F81602051813300BA5B12 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				770F81612051814900BA5B12 /* DatabaseService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		77116C1B203CD57F007B04DB = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +98,8 @@
 		77116C26203CD57F007B04DB /* TindyDog */ = {
 			isa = PBXGroup;
 			children = (
+				77743249205807FD00FCA444 /* Models */,
+				770F81602051813300BA5B12 /* Services */,
 				7785449420517BDF0030B7B4 /* Extensions */,
 				7775D66B20405BD60090A496 /* Controllers */,
 				77116C27203CD57F007B04DB /* AppDelegate.swift */,
@@ -96,11 +112,20 @@
 			path = TindyDog;
 			sourceTree = "<group>";
 		};
+		77743249205807FD00FCA444 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7774324A2058081000FCA444 /* UserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		7775D66B20405BD60090A496 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				7775D66C20405C130090A496 /* HomeViewController.swift */,
 				7740363C204F4F4E0038731B /* LoginViewController.swift */,
+				77C1A8682056EDEE0053997A /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -210,6 +235,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -218,6 +244,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -251,7 +278,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77C1A8692056EDEE0053997A /* ProfileViewController.swift in Sources */,
+				7774324B2058081000FCA444 /* UserModel.swift in Sources */,
 				7785449620517BF60030B7B4 /* UIViewExt.swift in Sources */,
+				770F81622051814900BA5B12 /* DatabaseService.swift in Sources */,
 				7740363D204F4F4E0038731B /* LoginViewController.swift in Sources */,
 				77116C28203CD57F007B04DB /* AppDelegate.swift in Sources */,
 				7775D66D20405C130090A496 /* HomeViewController.swift in Sources */,
