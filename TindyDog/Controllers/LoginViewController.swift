@@ -10,34 +10,16 @@ import UIKit
 import Firebase
 
 class LoginViewController: UIViewController {
-    @IBAction func closeBtn(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func subLoginBtnAction(_ sender: Any) {
-        if self.registerMode {
-            self.loginBtn.setTitle("Login", for: .normal)
-            self.loginCopyLbl.text = "Eres Nuevo?"
-            self.subLoginBtn.setTitle("Registrate", for: .normal)
-            self.registerMode = false
-        } else {
-            self.loginBtn.setTitle("Crear Cuenta", for: .normal)
-            self.loginCopyLbl.text = "Ya tienes Cuenta?"
-            self.subLoginBtn.setTitle("Login", for: .normal)
-            self.registerMode = true
-        }
-    }
     
     @IBOutlet weak var subLoginBtn: UIButton!
     @IBOutlet weak var loginCopyLbl: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
+    var registerMode = true
     
-    func showAlert(title: String, message: String) {
-        let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertView.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alertView, animated: true, completion: nil)
+    @IBAction func closeBtn(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func loginActionBtn(_ sender: Any) {
@@ -74,7 +56,31 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    var registerMode = true
+    
+    @IBAction func subLoginBtnAction(_ sender: Any) {
+        if self.registerMode {
+            self.loginBtn.setTitle("Login", for: .normal)
+            self.loginCopyLbl.text = "Eres Nuevo?"
+            self.subLoginBtn.setTitle("Registrate", for: .normal)
+            self.registerMode = false
+        } else {
+            self.loginBtn.setTitle("Crear Cuenta", for: .normal)
+            self.loginCopyLbl.text = "Ya tienes Cuenta?"
+            self.subLoginBtn.setTitle("Login", for: .normal)
+            self.registerMode = true
+        }
+    }
+    
+
+    
+    func showAlert(title: String, message: String) {
+        let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertView.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alertView, animated: true, completion: nil)
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
