@@ -29,6 +29,7 @@ class HomeViewController: UIViewController {
     let rightBtn = UIButton(type: .custom)
     
     var currentUserProfile: UserModel?
+    var currentMatch: MatchModel?
     var secondUserUID: String?
     var users = [UserModel]()
     
@@ -67,12 +68,12 @@ class HomeViewController: UIViewController {
         self.getUsers()
         
         UpdateDBService.instance.observeMatch { (matchDict) in
-            print("update match: \(matchDict)")
             if let match = matchDict {
                 // usuario 2
                 if let user = self.currentUserProfile{
                     if user.userIsOnMatch == false {
                         print("tienes un match")
+                        self.currentMatch = match
                         self.changeRightBtn(active: true)
                     }
                 }
@@ -90,7 +91,9 @@ class HomeViewController: UIViewController {
     func changeRightBtn(active: Bool) {
         if active {
             self.rightBtn.imageView?.image = UIImage(named: "match_active")
+            self.rightBtn.addTarget(self, action: #selector(goToMatch(sender:)), for: .touchUpInside)
         } else {
+            self.rightBtn.removeTarget(nil, action: nil, for: .allEvents)
             self.rightBtn.imageView?.image = UIImage(named: "match_inactive")
         }
     }
@@ -118,6 +121,14 @@ class HomeViewController: UIViewController {
         let profileViewController = storyBoard.instantiateViewController(withIdentifier: "profileVC") as! ProfileViewController
         profileViewController.currentUserProfile = self.currentUserProfile
         self.navigationController?.pushViewController(profileViewController, animated: true)
+    }
+    
+    @objc func goToMatch(sender: UIButton) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let matchViewController = storyBoard.instantiateViewController(withIdentifier: "matchVC") as! MatchViewController
+        matchViewController.currentUserProfile = self.currentUserProfile
+        matchViewController.currentMatch = self.currentMatch
+        present(matchViewController, animated: true, completion: nil)
     }
     
     func getUsers() {
