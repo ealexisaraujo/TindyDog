@@ -26,6 +26,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var cardProfileName: UILabel!
     
     let leftBtn = UIButton(type: .custom)
+    let rightBtn = UIButton(type: .custom)
     
     var currentUserProfile: UserModel?
     var secondUserUID: String?
@@ -64,6 +65,34 @@ class HomeViewController: UIViewController {
             self.currentUserProfile = userDict
         }
         self.getUsers()
+        
+        UpdateDBService.instance.observeMatch { (matchDict) in
+            print("update match: \(matchDict)")
+            if let match = matchDict {
+                // usuario 2
+                if let user = self.currentUserProfile{
+                    if user.userIsOnMatch == false {
+                        print("tienes un match")
+                        self.changeRightBtn(active: true)
+                    }
+                }
+            } else {
+                self.changeRightBtn(active: false)
+            }
+        }
+        self.rightBtn.setImage(UIImage(named: "match_inactive"), for: .normal)
+        self.rightBtn.imageView?.contentMode = .scaleAspectFit
+        let rightBtnBarButton = UIBarButtonItem(customView: self.rightBtn)
+        self.navigationItem.rightBarButtonItem = rightBtnBarButton
+        
+    }
+    
+    func changeRightBtn(active: Bool) {
+        if active {
+            self.rightBtn.imageView?.image = UIImage(named: "match_active")
+        } else {
+            self.rightBtn.imageView?.image = UIImage(named: "match_inactive")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

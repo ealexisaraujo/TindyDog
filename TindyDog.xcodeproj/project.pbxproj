@@ -17,6 +17,8 @@
 		7775D66D20405C130090A496 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775D66C20405C130090A496 /* HomeViewController.swift */; };
 		7785449620517BF60030B7B4 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785449520517BF60030B7B4 /* UIViewExt.swift */; };
 		7785449820517CDC0030B7B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7785449720517CDC0030B7B4 /* GoogleService-Info.plist */; };
+		7793DCE2205C107E0017D301 /* MatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793DCE1205C107E0017D301 /* MatchModel.swift */; };
+		7793DCE4205C120D0017D301 /* UpdateDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793DCE3205C120D0017D301 /* UpdateDBService.swift */; };
 		77C1A8692056EDEE0053997A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C1A8682056EDEE0053997A /* ProfileViewController.swift */; };
 		D058F85AE55BA8FC0AECC2E2 /* Pods_TindyDog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEC74AD125D2C36635E41B7 /* Pods_TindyDog.framework */; };
 /* End PBXBuildFile section */
@@ -35,6 +37,8 @@
 		7775D66C20405C130090A496 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7785449520517BF60030B7B4 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		7785449720517CDC0030B7B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7793DCE1205C107E0017D301 /* MatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchModel.swift; sourceTree = "<group>"; };
+		7793DCE3205C120D0017D301 /* UpdateDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDBService.swift; sourceTree = "<group>"; };
 		77C1A8682056EDEE0053997A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E11F6647F67A841B5FCC4241 /* Pods-TindyDog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TindyDog.release.xcconfig"; path = "Pods/Target Support Files/Pods-TindyDog/Pods-TindyDog.release.xcconfig"; sourceTree = "<group>"; };
 		FAEC74AD125D2C36635E41B7 /* Pods_TindyDog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TindyDog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				770F81612051814900BA5B12 /* DatabaseService.swift */,
+				7793DCE3205C120D0017D301 /* UpdateDBService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				7774324A2058081000FCA444 /* UserModel.swift */,
+				7793DCE1205C107E0017D301 /* MatchModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -279,6 +285,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				77C1A8692056EDEE0053997A /* ProfileViewController.swift in Sources */,
+				7793DCE2205C107E0017D301 /* MatchModel.swift in Sources */,
+				7793DCE4205C120D0017D301 /* UpdateDBService.swift in Sources */,
 				7774324B2058081000FCA444 /* UserModel.swift in Sources */,
 				7785449620517BF60030B7B4 /* UIViewExt.swift in Sources */,
 				770F81622051814900BA5B12 /* DatabaseService.swift in Sources */,
