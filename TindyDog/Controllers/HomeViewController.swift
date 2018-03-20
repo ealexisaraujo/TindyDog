@@ -155,14 +155,6 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func updateImage(uid: String) {
-        DatabaseService.instance.User_Ref.child(uid).observeSingleEvent(of: .value) { (snapshot) in
-            if let userProfile = UserModel(snapshot: snapshot){
-                self.cardProfileImage.sd_setImage(with: URL(string: userProfile.profileImage), completed: nil)
-                self.cardProfileName.text = userProfile.displayName
-            }
-        }
-    }
     
     @objc func cardDragged(gestureRecognizer: UIPanGestureRecognizer) {
         let cardPoint = gestureRecognizer.translation(in: view)
