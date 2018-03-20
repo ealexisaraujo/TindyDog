@@ -26,15 +26,18 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var cardProfileName: UILabel!
     
     let leftBtn = UIButton(type: .custom)
+    let rightBtn = UIButton(type: .custom)
     
     var currentUserProfile: UserModel?
+    var currentMatch: MatchModel?
+    var secondUserUID: String?
     var users = [UserModel]()
     
     let revealingSplashScreen = RevealingSplashView(iconImage: UIImage(named: "splash_icon")!,iconInitialSize: CGSize(width: 70, height: 70), backgroundColor: UIColor.white)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(revealingSplashScreen)
+        self.view.addSubview(self.revealingSplashScreen)
         self.revealingSplashScreen.animationType = SplashAnimationType.popAndZoomOut
         self.revealingSplashScreen.startAnimation()
         
@@ -56,14 +59,41 @@ class HomeViewController: UIViewController {
             } else {
                 print("Logout")
             }
-            
+            DatabaseService.instance.observeUserProfile { (userDict) in
+                self.currentUserProfile = userDict
+                UpdateDBService.instance.observeMatch(handler: { (matchDict) in
+                    if let match = matchDict{
+                        if let user = self.currentUserProfile{
+                            if user.userIsOnMatch == false{
+                                print("tienes un match")
+                                self.currentMatch = match
+                                self.changeRightBtn(active: true)
+                            }
+                        }
+                    }else{
+                        self.changeRightBtn(active: false)
+                    }
+                })
+            }
+            self.getUsers()
         }
         
-        DatabaseService.instance.observeUserProfile { (userDict) in
-            self.currentUserProfile = userDict
+       
+        self.rightBtn.setImage(UIImage(named: "match_inactive"), for: .normal)
+        self.rightBtn.imageView?.contentMode = .scaleAspectFit
+        let rightBtnBarButton = UIBarButtonItem(customView: self.rightBtn)
+        self.navigationItem.rightBarButtonItem = rightBtnBarButton
+        
+    }
+    
+    func changeRightBtn(active: Bool) {
+        if active {
+            self.rightBtn.setImage(UIImage(named:"match_active"), for: .normal)
+            self.rightBtn.addTarget(self, action: #selector(goToMatch(sender:)), for: .touchUpInside)
+        } else {
+            self.rightBtn.removeTarget(nil, action: nil, for: .allEvents)
+            self.rightBtn.imageView?.image = UIImage(named: "match_inactive")
         }
-        self.getUsers()
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -91,12 +121,36 @@ class HomeViewController: UIViewController {
         self.navigationController?.pushViewController(profileViewController, animated: true)
     }
     
+    @objc func goToMatch(sender: UIButton) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let matchViewController = storyBoard.instantiateViewController(withIdentifier: "matchVC") as! MatchViewController
+        matchViewController.currentUserProfile = self.currentUserProfile
+        matchViewController.currentMatch = self.currentMatch
+        //matchViewController.lastImage = self.view.screenshot()
+        present(matchViewController, animated: true, completion: nil)
+    }
+    
     func getUsers() {
         DatabaseService.instance.User_Ref.observeSingleEvent(of: .value) { (snapshot) in
             let userSnapshot = snapshot.children.flatMap{UserModel(snapshot: $0 as! DataSnapshot)}
             for user in userSnapshot{
                 print("user: \(user.email)")
-                self.users.append(user)
+                if self.currentUserProfile?.uid != user.uid {
+                    self.users.append(user)
+                }
+            }
+            if self.users.count > 0 {
+                self.updateImage(uid: (self.users.first?.uid)!)
+            }
+        }
+    }
+    
+    func updateImage(uid: String) {
+        DatabaseService.instance.User_Ref.child(uid).observeSingleEvent(of: .value) { (snapshot) in
+            if let userProfile = UserModel(snapshot: snapshot){
+                self.secondUserUID = userProfile.uid
+                self.cardProfileImage.sd_setImage(with: URL(string: userProfile.profileImage), completed: nil)
+                self.cardProfileName.text = userProfile.displayName
             }
         }
     }
@@ -121,20 +175,25 @@ class HomeViewController: UIViewController {
         
         self.cardView.transform = finalTransform
         
-        if self.cardView.center.x < self.view.bounds.width / 2 - 100 {
+        if self.cardView.center.x < (self.view.bounds.width / 2 - 100) {
             self.nopeImage.alpha = min(abs(xFromCenter) / 100 , 1)
         }
-        if self.cardView.center.x > self.view.bounds.width / 2 + 100 {
+        if self.cardView.center.x > (self.view.bounds.width / 2 + 100) {
             self.likeImage.alpha = min(abs(xFromCenter) / 100 , 1)
         }
         
         
         if gestureRecognizer.state == .ended {
-            if self.cardView.center.x < self.view.bounds.width / 2 - 100 {
+            if self.cardView.center.x < (self.view.bounds.width / 2 - 100) {
                 print("Dislike")
             }
-            if self.cardView.center.x > self.view.bounds.width / 2 + 100 {
+            if self.cardView.center.x > (self.view.bounds.width / 2 + 100) {
                 print("like")
+                //create match
+                if let uid2 = self.secondUserUID {
+                    DatabaseService.instance.createFirebaseDBMatch(uid: self.currentUserProfile!.uid, uid2: uid2)
+                }
+                
             }
             //Update image
             if self.users.count > 0 {
