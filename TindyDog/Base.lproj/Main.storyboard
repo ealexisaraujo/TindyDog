@@ -227,7 +227,7 @@
                     <connections>
                         <outlet property="copyMatchLbl" destination="3LT-s7-P1y" id="WsZ-ye-B58"/>
                         <outlet property="doneBtn" destination="7h2-B4-BOu" id="zw7-Ss-eXS"/>
-                        <outlet property="firstUserMatchImage" destination="efa-p6-len" id="aZS-ek-b9v"/>
+                        <outlet property="fisrtUserMatchImage" destination="obU-kH-tGE" id="get-fD-bgI"/>
                         <outlet property="secondUserMatchImage" destination="efa-p6-len" id="UIl-jO-POc"/>
                     </connections>
                 </viewController>

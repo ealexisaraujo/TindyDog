@@ -11,9 +11,10 @@ import UIKit
 class MatchViewController: UIViewController {
 
     @IBOutlet weak var copyMatchLbl: UILabel!
-    @IBOutlet weak var firstUserMatchImage: UIImageView!
     @IBOutlet weak var secondUserMatchImage: UIImageView!
     @IBOutlet weak var doneBtn: UIButton!
+    @IBOutlet weak var fisrtUserMatchImage: UIImageView!
+    
     
     var currentUserProfile: UserModel?
     var currentMatch: MatchModel?
@@ -23,13 +24,36 @@ class MatchViewController: UIViewController {
     @IBAction func doneBtnAction(_ sender: Any) {
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.secondUserMatchImage.round()
+        self.fisrtUserMatchImage.round()
+        
         if let match = self.currentMatch {
             print("match: \(match)")
             if let profile = self.currentUserProfile{
-                self.secondUserMatchImage.sd_setImage(with: URL(string: profile.profileImage), completed: nil)
+                var secondID: String = ""
+                if profile.uid == match.uid{
+                    secondID = match.uid2
+                } else {
+                    secondID = match.uid
+                }
+                
+                DatabaseService.instance.getUserProfile(uid: secondID, handler: { (secondUser) in
+                    if let secondUser = secondUser {
+                        if profile.uid == match.uid{
+                            // init match
+                            self.fisrtUserMatchImage.sd_setImage(with: URL(string:profile.profileImage), completed: nil)
+                            self.secondUserMatchImage.sd_setImage(with: URL(string:secondUser.profileImage), completed: nil)
+                        } else {
+                            // match
+                            self.fisrtUserMatchImage.sd_setImage(with: URL(string:secondUser.profileImage), completed: nil)
+                            self.secondUserMatchImage.sd_setImage(with: URL(string:profile.profileImage), completed: nil)
+                            self.copyMatchLbl.text = "Tu mascota le gusta a \(secondUser.displayName)"
+                        }
+                    }
+                })
             }
         }
         // Do any additional setup after loading the view.
