@@ -22,6 +22,12 @@ class LoginViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    func showAlert(title: String, message: String){
+        let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertView.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertView, animated: true, completion: nil)
+    }
+    
     @IBAction func loginActionBtn(_ sender: Any) {
         if self.emailTextField.text == "" || self.passwordTextField.text == "" {
             self.showAlert(title: "Error", message: "Alguno de los campos esta vacio")
@@ -70,17 +76,6 @@ class LoginViewController: UIViewController {
             self.registerMode = true
         }
     }
-    
-
-    
-    func showAlert(title: String, message: String) {
-        let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertView.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alertView, animated: true, completion: nil)
-    }
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

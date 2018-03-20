@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(revealingSplashScreen)
+        self.view.addSubview(self.revealingSplashScreen)
         self.revealingSplashScreen.animationType = SplashAnimationType.popAndZoomOut
         self.revealingSplashScreen.startAnimation()
         
@@ -59,28 +59,26 @@ class HomeViewController: UIViewController {
             } else {
                 print("Logout")
             }
-            
-        }
-        
-        DatabaseService.instance.observeUserProfile { (userDict) in
-            self.currentUserProfile = userDict
-        }
-        self.getUsers()
-        
-        UpdateDBService.instance.observeMatch { (matchDict) in
-            if let match = matchDict {
-                // usuario 2
-                if let user = self.currentUserProfile{
-                    if user.userIsOnMatch == false {
-                        print("tienes un match")
-                        self.currentMatch = match
-                        self.changeRightBtn(active: true)
+            DatabaseService.instance.observeUserProfile { (userDict) in
+                self.currentUserProfile = userDict
+                UpdateDBService.instance.observeMatch(handler: { (matchDict) in
+                    if let match = matchDict{
+                        if let user = self.currentUserProfile{
+                            if user.userIsOnMatch == false{
+                                print("tienes un match")
+                                self.currentMatch = match
+                                self.changeRightBtn(active: true)
+                            }
+                        }
+                    }else{
+                        self.changeRightBtn(active: false)
                     }
-                }
-            } else {
-                self.changeRightBtn(active: false)
+                })
             }
+            self.getUsers()
         }
+        
+       
         self.rightBtn.setImage(UIImage(named: "match_inactive"), for: .normal)
         self.rightBtn.imageView?.contentMode = .scaleAspectFit
         let rightBtnBarButton = UIBarButtonItem(customView: self.rightBtn)
@@ -90,7 +88,7 @@ class HomeViewController: UIViewController {
     
     func changeRightBtn(active: Bool) {
         if active {
-            self.rightBtn.imageView?.image = UIImage(named: "match_active")
+            self.rightBtn.setImage(UIImage(named:"match_active"), for: .normal)
             self.rightBtn.addTarget(self, action: #selector(goToMatch(sender:)), for: .touchUpInside)
         } else {
             self.rightBtn.removeTarget(nil, action: nil, for: .allEvents)
@@ -128,6 +126,7 @@ class HomeViewController: UIViewController {
         let matchViewController = storyBoard.instantiateViewController(withIdentifier: "matchVC") as! MatchViewController
         matchViewController.currentUserProfile = self.currentUserProfile
         matchViewController.currentMatch = self.currentMatch
+        //matchViewController.lastImage = self.view.screenshot()
         present(matchViewController, animated: true, completion: nil)
     }
     
@@ -167,19 +166,19 @@ class HomeViewController: UIViewController {
         
         self.cardView.transform = finalTransform
         
-        if self.cardView.center.x < self.view.bounds.width / 2 - 100 {
+        if self.cardView.center.x < (self.view.bounds.width / 2 - 100) {
             self.nopeImage.alpha = min(abs(xFromCenter) / 100 , 1)
         }
-        if self.cardView.center.x > self.view.bounds.width / 2 + 100 {
+        if self.cardView.center.x > (self.view.bounds.width / 2 + 100) {
             self.likeImage.alpha = min(abs(xFromCenter) / 100 , 1)
         }
         
         
         if gestureRecognizer.state == .ended {
-            if self.cardView.center.x < self.view.bounds.width / 2 - 100 {
+            if self.cardView.center.x < (self.view.bounds.width / 2 - 100) {
                 print("Dislike")
             }
-            if self.cardView.center.x > self.view.bounds.width / 2 + 100 {
+            if self.cardView.center.x > (self.view.bounds.width / 2 + 100) {
                 print("like")
                 //create match
                 if let uid2 = self.secondUserUID {

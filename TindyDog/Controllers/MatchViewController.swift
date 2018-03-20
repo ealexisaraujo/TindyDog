@@ -14,6 +14,9 @@ class MatchViewController: UIViewController {
     @IBOutlet weak var secondUserMatchImage: UIImageView!
     @IBOutlet weak var doneBtn: UIButton!
     @IBOutlet weak var fisrtUserMatchImage: UIImageView!
+    @IBAction func closeBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
     var currentUserProfile: UserModel?
@@ -22,6 +25,14 @@ class MatchViewController: UIViewController {
     
     
     @IBAction func doneBtnAction(_ sender: Any) {
+        if let currentMatch = self.currentMatch {
+            if currentMatch.matchIsAccepted {
+                
+            } else {
+                DatabaseService.instance.updateFirebaseDBMatch(uid: currentMatch.uid)
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
     
@@ -46,11 +57,19 @@ class MatchViewController: UIViewController {
                             // init match
                             self.fisrtUserMatchImage.sd_setImage(with: URL(string:profile.profileImage), completed: nil)
                             self.secondUserMatchImage.sd_setImage(with: URL(string:secondUser.profileImage), completed: nil)
+                            self.copyMatchLbl.text = "Esperando a \(secondUser.displayName)"
+                            self.doneBtn.alpha = 0
                         } else {
                             // match
                             self.fisrtUserMatchImage.sd_setImage(with: URL(string:secondUser.profileImage), completed: nil)
                             self.secondUserMatchImage.sd_setImage(with: URL(string:profile.profileImage), completed: nil)
                             self.copyMatchLbl.text = "Tu mascota le gusta a \(secondUser.displayName)"
+                            self.doneBtn.alpha = 1
+                        }
+                        if match.matchIsAccepted{
+                            self.copyMatchLbl.text = "\(profile.displayName) y \(secondUser.displayName) quieren conocerse "
+                            self.doneBtn.setTitle("Compartir", for: .normal)
+                            self.doneBtn.alpha = 1
                         }
                     }
                 })
